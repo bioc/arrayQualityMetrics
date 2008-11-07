@@ -507,15 +507,15 @@ report = function(expressionset, arg, sNt, sN, sec1text, mapdf, matext1, nfig, l
     if(!is(expressionset, "BeadLevelList") && "X" %in% rownames(featureData(expressionset)@varMetadata) && "Y" %in% rownames(featureData(expressionset)@varMetadata))
       {
         if("Rb" %in% colnames(dims(expressionset)) && "Gb" %in% colnames(dims(expressionset)))
-          writeLines("<LI><a href=\"#S1.2\">Spatial distribution of local background intensites</b></a>", con)
+          writeLines("<LI><a href=\"#S1.2\">Spatial distribution of local background intensities</b></a>", con)
         
-        writeLines("<LI><a href=\"#S1.3\">Spatial distribution of features intensites</b></a>", con)
+        writeLines("<LI><a href=\"#S1.3\">Spatial distribution of features intensities</b></a>", con)
         writeLines("<LI><a href=\"#S1.4\">Row-Column effect</b></a>", con)
       }
     
     if(is(expressionset, "AffyBatch"))
       {
-        writeLines("<LI><a href=\"#S1.2\">Spatial distribution of features intensites</b></a>", con)
+        writeLines("<LI><a href=\"#S1.2\">Spatial distribution of features intensities</b></a>", con)
         maxc = ncol(expressionset)
         maxr = nrow(expressionset)       
         if(maxr*maxc < 1000000)
@@ -524,8 +524,8 @@ report = function(expressionset, arg, sNt, sN, sec1text, mapdf, matext1, nfig, l
 
     if(is(expressionset, "BeadLevelList"))
       {
-        writeLines("<LI><a href=\"#S1.2\">Spatial distribution of local background intensites</b></a>", con)
-        writeLines("<LI><a href=\"#S1.3\">Spatial distribution of features intensites</b></a>", con)
+        writeLines("<LI><a href=\"#S1.2\">Spatial distribution of local background intensities</b></a>", con)
+        writeLines("<LI><a href=\"#S1.3\">Spatial distribution of features intensities</b></a>", con)
       }
 
     writeLines("</UL>", con)
@@ -898,7 +898,7 @@ Note that a bigger width of the plot of the M-distribution at the lower end of t
                     axis(2, label= as.list(pretty(mr,9)),at=seq(0,1,by=(1/(length(pretty(mr,9))-1))), cex.axis = 0.7, padj = 1)
                     dev.off()
                
-                    batext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><center><a name = \"S1.2\"><A HREF=\"%s\"><IMG BORDER = \"0\" SRC=\"%s\"/></a></A></CENTER></td><td><IMG BORDER = \"0\" SRC=\"%s\"/></td><td>\n", "Spatial distribution of local background intensites", basename(bapng[1]), basename(bapng[1]), basename(llbpng))
+                    batext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><center><a name = \"S1.2\"><A HREF=\"%s\"><IMG BORDER = \"0\" SRC=\"%s\"/></a></A></CENTER></td><td><IMG BORDER = \"0\" SRC=\"%s\"/></td><td>\n", "Spatial distribution of local background intensities", basename(bapng[1]), basename(bapng[1]), basename(llbpng))
                   }
 
 ###################################
@@ -966,7 +966,7 @@ Note that a bigger width of the plot of the M-distribution at the lower end of t
                 axis(2, label= as.list(pretty(mrf,9)),at=seq(0,1,by=(1/(length(pretty(mrf,9))-1))), cex.axis = 0.7, padj = 1)
                 dev.off()
                 
-                ftext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><a name = \"S1.3\"><A HREF=\"%s\"><IMG border = \"0\" SRC=\"%s\"/></a></A><center><b>Figure %s</b></center></td><td><IMG BORDER = \"0\" SRC=\"%s\"/></td><td>\n", "Spatial distribution of features intensites", basename(fpng[1]), basename(fpng[1]), figure, basename(llfpng))
+                ftext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><a name = \"S1.3\"><A HREF=\"%s\"><IMG border = \"0\" SRC=\"%s\"/></a></A><center><b>Figure %s</b></center></td><td><IMG BORDER = \"0\" SRC=\"%s\"/></td><td>\n", "Spatial distribution of features intensities", basename(fpng[1]), basename(fpng[1]), figure, basename(llfpng))
 
                 legendlocal = sprintf("<DIV style=\"font-size: 13; font-family: Lucida Grande; text-align:justify\"><b>Figure %s:</b> False color representations of the arrays' spatial distributions of feature intensities and, if available, local background estimates. The color scale is shown in the panel on the right, and it is proportional to the ranks. These plots may help in identifying patterns that may be caused, for example, spatial gradients in the hybridization chamber, air bubbles, spotting or plating problems.</DIV>", figure)          
               
@@ -1540,7 +1540,7 @@ where I<sub>1</sub> is the intensity of the array studied and I<sub>2</sub> is t
             axis(2, label= as.list(pretty(mfg,9)),at=seq(0,1,by=(1/(length(pretty(mfg,9))-1))), cex.axis = 0.7, padj = 1)
             dev.off()
                 
-            ftext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><a name = \"S1.3\"><A HREF=\"%s\"><IMG border = \"0\" SRC=\"%s\"/></a></A><center><b>Figure %s</b></center></td><td><IMG BORDER = \"0\" SRC=\"%s\"/></td><td>\n", "Spatial distribution of features intensites", basename(fpng[1]), basename(fpng[1]), figure, basename(llfpng))
+            ftext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><a name = \"S1.3\"><A HREF=\"%s\"><IMG border = \"0\" SRC=\"%s\"/></a></A><center><b>Figure %s</b></center></td><td><IMG BORDER = \"0\" SRC=\"%s\"/></td><td>\n", "Spatial distribution of features intensities", basename(fpng[1]), basename(fpng[1]), figure, basename(llfpng))
 
             legendlocal = sprintf("<DIV style=\"font-size: 13; font-family: Lucida Grande; text-align:justify\"><b>Figure %s:</b> False color representations of the arrays' spatial distributions of feature intensities. The color scale is shown in the panel on the right, and it is proportional to the ranks. These plots may help in identifying patterns that may be caused, for example, spatial gradients in the hybridization chamber, air bubbles, spotting or plating problems.</DIV>", figure)
 
@@ -2127,7 +2127,7 @@ A = 1/2 (log<sub>2</sub>(I<sub>1</sub>)+log<sub>2</sub>(I<sub>2</sub>))<br>
                   }
               }
             
-            batext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><center><a name = \"S1.2\"><A HREF=\"%s\"><IMG BORDER = \"0\" SRC=\"%s\"/></a></A></CENTER></td><td>\n", "Spatial distribution of local background intensites", basename(bapng[1]), basename(bapng[1]))
+            batext = sprintf("<table cellspacing = 5 cellpadding = 2><tr><td><b>%s</b></td><td><center><a name = \"S1.2\"><A HREF=\"%s\"><IMG BORDER = \"0\" SRC=\"%s\"/></a></A></CENTER></td><td>\n", "Spatial distribution of local background intensities", basename(bapng[1]), basename(bapng[1]))
 
 
 ###################################
