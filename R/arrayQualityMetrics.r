@@ -29,7 +29,9 @@ setMethod("arrayQualityMetrics",signature(expressionset = "aqmInputObj"), functi
             if(inherits(obj$maplot,"try-error"))
               warning("Cannot draw MA plots \n")
 
-            if(inherits(expressionset, 'BeadLevelList') || inherits(expressionset, 'AffyBatch') || ("X" %in% rownames(featureData(expressionset)@varMetadata) && "Y" %in% rownames(featureData(expressionset)@varMetadata)) && spatial == TRUE)
+	      if(spatial == TRUE){
+
+            if(inherits(expressionset, 'BeadLevelList') || inherits(expressionset, 'AffyBatch') || ("X" %in% rownames(featureData(expressionset)@varMetadata) && "Y" %in% rownames(featureData(expressionset)@varMetadata)))
               {            
                 obj$spatial =  try(aqm.spatial(expressionset = expressionset, dataprep = datap, scale = "Rank"))
                 if(inherits(obj$spatial,"try-error"))
@@ -42,6 +44,7 @@ setMethod("arrayQualityMetrics",signature(expressionset = "aqmInputObj"), functi
                       warning("Cannot draw spatial distribution of background intensities \n") 
                   }                
               }
+	      }
                         
             obj$boxplot = try(aqm.boxplot(expressionset = expressionset, dataprep = datap, intgroup, grouprep))
             if(inherits(obj$boxplot,"try-error"))
