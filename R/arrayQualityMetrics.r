@@ -80,20 +80,19 @@ setMethod("arrayQualityMetrics",
     obj$pca       = aqm.pca(    expressionset, dataprep=dataprep, intgroup = intgroup, outliers = obj$heatmap$outliers)
     obj$meansd    = aqm.meansd(                dataprep=dataprep)
     obj$probesmap = aqm.probesmap(expressionset, dataprep = dataprep)
-    
+
     if(inherits(expressionset, "AffyBatch")) {
-      obj$rnadeg = aqm.rnadeg(expressionset)
-      
+      obj$rnadeg = try( aqm.rnadeg(expressionset) )
       affyproc = aqm.prepaffy(expressionset)
-      obj$rle  = aqm.rle(expressionset, dataprep, affyproc, intgroup=intgroup)        
-      obj$nuse = aqm.nuse(expressionset, dataprep, affyproc, intgroup=intgroup)
-      
+      obj$rle  = try( aqm.rle( expressionset, dataprep, affyproc, intgroup=intgroup) )   
+      obj$nuse = try( aqm.nuse(expressionset, dataprep, affyproc, intgroup=intgroup) )
+        
       if(length(grep("exon", cdfName(expressionset), ignore.case=TRUE)) == 0) {
-        obj$qcstats =  aqm.qcstats(expressionset)
+        obj$qcstats = try( aqm.qcstats(expressionset) )
       }
         
-      obj$pmmm = aqm.pmmm(expressionset)
-    }
+      obj$pmmm = try( aqm.pmmm(expressionset) )
+    } # if
     
     remove = names(obj)[ sapply(obj, inherits, what = "try-error") ]
     for(r in remove)
