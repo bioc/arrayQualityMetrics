@@ -43,7 +43,7 @@ aqm.boxplot = function(expressionset, dataprep, intgroup, subsample = 10000, ...
     lay = c(1,1)
     legspe = ""
   }
-  xAsterisk = quantile(dataprep$dat[ss,], probs = 0.01)
+  xAsterisk = quantile(dataprep$dat[ss,], probs = 0.01, na.rm=TRUE)
   
   cl = intgroupColours(intgroup, expressionset)
 
@@ -57,7 +57,7 @@ aqm.boxplot = function(expressionset, dataprep, intgroup, subsample = 10000, ...
         scales = list(x=list(relation="free"), y=list(axs="i")),
         ylim = c(dataprep$numArrays+0.7,0.3),
         prepanel = function(x, y) {
-          list(xlim = quantile(x, probs = c(0.01, 0.99)))
+          list(xlim = quantile(x, probs = c(0.01, 0.99), na.rm=TRUE))
         },
         panel.groups = function(x, y, ...) {
           panel.bwplot(x, y, ...)
