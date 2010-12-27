@@ -27,6 +27,7 @@
 In the vignette arrayQualityMetrics.pdf, you can learn how to use the arrayQualityMetrics function to create a full report. In this vignette, we show how to only run one or several of the metrics and how to add your own modules to customize the report.
 %
 <<options,echo=FALSE>>=
+options(error=recover)
 if (Sys.info()["sysname"] == "Darwin")
   options(bitmapType = "cairo")
 @
@@ -106,8 +107,8 @@ dataprep = aqm.prepdata(expressionset = nCCl4, do.logtransform = FALSE)
 
 We compute the boxplot and density plots metrics and then create a list containing both of them.
 <<metrics>>=
-bo = aqm.boxplot(nCCl4, dataprep)
-de = aqm.density(nCCl4, dataprep)
+bo = aqm.boxplot(nCCl4, dataprep, intgroup = c())
+de = aqm.density(nCCl4, dataprep, intgroup = c(), outliers = c())
 qm = list("Boxplot" = bo, "Density" = de)
 @ 
 
@@ -129,7 +130,7 @@ The first step is to create a class for the output object.
                                      section="character",
                                      title="character",
                                      legend="character",
-                                     shape="character"))
+                                     shape="list"))
 @ 
 Then, we can write the function. For the example, we will only make it work for \Rclass{NChannelSet}.
 'GC' refers to the GC content whereas 'gc' stands for 'green channel' in the data set (with 'rc' being 'red channel' and 'dat' the log(ratio)).
@@ -171,7 +172,7 @@ This tends to result in higher intensities measured on the array, regardless of 
 abundance of target molecules."
               
   out = list("plot" = plotGC, "section" = section, "title" = title, 
-             "legend" = legend, "shape" = "rect")
+             "legend" = legend, "shape" = list(h=9,w=4))
   class(out) = "aqmobj.GC"
   return(out)   
 })      
@@ -197,6 +198,8 @@ datapath = system.file("extdata", package="CCl4")
 seq = read.AnnotatedDataFrame("013162_D_SequenceList_20060815.txt", path=datapath)
 if(any(duplicated(featureNames(seq))))
   cat("IDs of the sequence file are not unique \n")
+
+library("Biostrings")
 bc = alphabetFrequency(DNAStringSet(seq$Sequence), baseOnly=TRUE)
 GC = ((bc[,"C"]+bc[,"G"])/rowSums(bc))*100
 mt = match(featureNames(seq), fData(nCCl4)$ID)
