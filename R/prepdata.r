@@ -209,7 +209,7 @@ function(expressionset, intgroup, do.logtransform)
 ##------------------------------------------------------------
 cleanPhenoData = function(x, intgroup, maxcol = 50) {
 
-  if(class(x) == "data.frame") {
+  if(is.data.frame(x) == "data.frame") {
     pd = x
     scd = NULL
   } else {
