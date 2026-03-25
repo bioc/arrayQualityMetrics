@@ -5,8 +5,12 @@ Author: Audrey Kauffmann, Wolfgang Huber
 Maintainer: Mike Smith <mike.smith@embl.de>
 BugReports: https://github.com/grimbough/arrayQualityMetrics/issues
 VignetteBuilder: knitr
-Depends:
-Suggests: ALLMLL, CCl4, BiocStyle, knitr
+Suggests: 
+    ALLMLL,
+    CCl4,
+    BiocStyle,
+    knitr,
+    rmarkdown
 Imports: affy, affyPLM (>= 1.27.3), beadarray, Biobase, genefilter,
          graphics, grDevices, grid, gridSVG (>= 1.4-3), Hmisc, hwriter, 
          lattice, latticeExtra, limma, methods, RColorBrewer, setRNG, stats,
@@ -19,4 +23,3 @@ biocViews: Microarray, QualityControl, OneChannel, TwoChannel, ReportWriting
 Collate: classes.R affyspecific.r annotateSvg.R arrayQualityMetrics.r
   boxplot.r density.r globalParameters.R heatmap.r makeColors.R maplot.r meansd.r
   outlier.R pca.r prepdata.r probesmap.r spatial.r writereport.r XYfromGAL.r
-
