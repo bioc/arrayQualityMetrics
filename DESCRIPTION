@@ -1,8 +1,11 @@
 Package: arrayQualityMetrics
 Title: Quality metrics report for microarray data sets
 Version: 3.67.0
-Author: Audrey Kauffmann, Wolfgang Huber
-Maintainer: Mike Smith <mike.smith@embl.de>
+Authors@R: c(
+    person("Audrey", "Kauffmann", role = "aut"),
+    person("Wolfgang", "Huber", role = "aut"),
+    person("Hugo", "Gruson", role = "cre", email = "hugo.gruson@embl.de")
+  )
 BugReports: https://github.com/grimbough/arrayQualityMetrics/issues
 VignetteBuilder: knitr
 Suggests: 
@@ -23,3 +26,4 @@ biocViews: Microarray, QualityControl, OneChannel, TwoChannel, ReportWriting
 Collate: classes.R affyspecific.r annotateSvg.R arrayQualityMetrics.r
   boxplot.r density.r globalParameters.R heatmap.r makeColors.R maplot.r meansd.r
   outlier.R pca.r prepdata.r probesmap.r spatial.r writereport.r XYfromGAL.r
+RoxygenNote: 7.3.3
