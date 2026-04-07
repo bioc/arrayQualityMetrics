@@ -356,9 +356,9 @@ aqm.writereport = function(modules, arrayTable, reporttitle, outdir)
     outdir = outdir,
     ## Inject report-specific variables into the JavaScript
     params = c(
-      HIGHLIGHTINITIAL = toJSON_fromchar(ifelse(apply(outliers, 1, any), "true", "false")),
-      ARRAYMETADATA    = toJSON_frommatrix(arrayTableCompact),
-      SVGOBJECTNAMES   = toJSON_fromvector(names(svgdata)),
+      HIGHLIGHTINITIAL = jsonlite::toJSON(tolower(as.character(apply(outliers, 1, any)))),
+      ARRAYMETADATA    = jsonlite::toJSON(arrayTableCompact),
+      SVGOBJECTNAMES   = jsonlite::toJSON(names(svgdata)),
       REPORTOBJSTYLES  = paste0(".aqm", reportObjs, " { }", collapse = "\n")
     ))
 
