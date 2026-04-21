@@ -36,7 +36,7 @@ Imports:
     stats,
     utils,
     vsn (>= 3.23.3),
-    xml2,
+    XML,
     svglite
 Description: This package generates microarray quality metrics reports for
   data in Bioconductor microarray data containers (ExpressionSet, NChannelSet,
