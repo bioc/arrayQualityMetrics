@@ -6,7 +6,7 @@ Authors@R: c(
     person("Wolfgang", "Huber", role = "aut"),
     person("Hugo", "Gruson", role = "cre", email = "hugo.gruson@embl.de")
   )
-BugReports: https://github.com/grimbough/arrayQualityMetrics/issues
+BugReports: https://github.com/Huber-group-EMBL/arrayQualityMetrics/issues
 VignetteBuilder: knitr
 Suggests: 
     ALLMLL,
@@ -36,7 +36,7 @@ Imports:
     stats,
     utils,
     vsn (>= 3.23.3),
-    XML,
+    xml2,
     svglite
 Description: This package generates microarray quality metrics reports for
   data in Bioconductor microarray data containers (ExpressionSet, NChannelSet,
@@ -47,3 +47,4 @@ Collate: classes.R affyspecific.r annotateSvg.R arrayQualityMetrics.r
   boxplot.r density.r globalParameters.R heatmap.r makeColors.R maplot.r meansd.r
   outlier.R pca.r prepdata.r probesmap.r spatial.r writereport.r XYfromGAL.r
 RoxygenNote: 7.3.3
+URL: https://github.com/Huber-group-EMBL/arrayQualityMetrics
