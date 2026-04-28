@@ -1,6 +1,15 @@
 \name{NEWS}
 \title{News for Package 'arrayQualityMetrics'}
 
+\section{Changes in version 3.69.1}{
+  \subsection{MINOR CHANGES}{
+    \itemize{
+      \item RColorBrewer dependency has been replaced by base grDevices
+      package.
+    }
+  }
+}
+
 \section{Changes in version 3.33.2}{
   \subsection{USER VISIBLE CHANGES}{
     \itemize{
